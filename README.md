@@ -1,85 +1,133 @@
- ![svgviewer-output](https://github.com/ElloTechnology/backend_takehome/assets/3518127/561bc8d4-bffc-4360-b9ea-61e876bcec93)
+ # Project Documentation
+
+## Overview
+
+This project is a full-stack application built with React and Material-UI on the frontend, and a GraphQL backend. The project structure is organized as a monorepo with separate folders for the frontend and backend.
+
+- **Frontend:** Located in the `frontend` folder, built using React, Material-UI, and Apollo Client for GraphQL integration.
+- **Backend:** Located in the `backend` folder, built using GraphQL.
+
+## Project Structure
+
+/project-root
+|-- /frontend
+| |-- /src
+| | |-- components
+| | | |-- App.js
+| | | |-- ResponsiveAppBar.js
+| | | |-- SearchBox.js
+| | | |-- MediaControlCard.js
+| | | |-- EmptyState.js
+| | | |-- LoadingComponent.js
+| | |-- hooks
+| | | |-- useReadingListBooks.js
+| | | |-- useSearchBooks.js
+| | | |-- usePagination.js
+| | |-- graphql
+| | | |-- queries.js
+| | | |-- fragments.js
+| | |-- index.js
+| | |-- App.css
+| |-- public
+| |-- package.json
+|-- /backend
+| |-- src
+| |-- package.json
+|-- package.json
 
 
-# Ello Engineering Challenge
+## Frontend
 
-👋 Hello,
-We are really excited about you potentially joining the team, so we designed this take home exercise to give you a taste of the challenges you may encounter in the role, and better understand what it would be like to work closely together.
+### Components
 
-Thanks for taking the time, and we hope to talk with you soon!
+#### `App.js`
 
-## About Ello
+The main component that manages the state of the active page, handles queries for books, and includes pagination, search, and reading list functionality.
 
-Ello is a forward-thinking educational technology company dedicated to revolutionizing the way children learn to read. Our mission is to empower young readers with the tools they need to become proficient and passionate readers. We believe that fostering a love for reading is essential for a child's academic and personal growth.
+#### `ResponsiveAppBar.js`
 
-**Note:** Please don't fork this repository or create a pull request against it. Other applicants may take inspiration from it. You should create another repository for the challenge. Once the coding challenge is completed, email your solution back to our team at [fullstack2024@ello.com](mailto:fullstack2024@ello.com).
+A responsive AppBar component that includes navigation and a menu for smaller screens.
 
+#### `SearchBox.js`
 
-## Challenge
-As part of our goal to have Ello impact as many children as we can, we offer an Ello web viewer product. [https://books.ello.com](https://books.ello.com/)
+A component for searching books by title.
 
+#### `MediaControlCard.js`
 
-We give this to certain schools for free to allow teachers to share our books with children. 
-You are building part of the teacher-facing UI for this product,
-namely the book assignment view, where teachers can assign books to students. 
+A card component to display book information with options to add/remove from the reading list.
 
-The view should have the following features:-
+#### `EmptyState.js`
 
-1. A search bar that allows users to search for books by title.
-2. A list of search results that displays the book title, author, and a button to add the book to the students reading list.
-3. A reading list that displays all the books that the teacher has added.
-4. A button to remove a book from the reading list.
+A component to display a message when the book list is empty.
 
-You can build this view without the concept of a "student" and just have a single reading list for the teacher.
+#### `LoadingComponent.js`
 
-### Requirements
-- Use React as the frontend framework.
-- Showcase the use of React hooks.
-- Use [material-ui](https://mui.com/material-ui/) as the component library.
-- Write your code in the `src/frontend` directory.
-- Create components as you feel is best suited for your solution
-<img width="1013" alt="Screenshot 2024-05-15 at 19 10 51" src="https://github.com/ElloTechnology/fullstack-take-home-test/assets/3518127/bc3eb7f7-489f-4304-93f4-032bbbd38c58">
+A component to display a loading spinner while data is being fetched.
 
+### Hooks
 
-### Data
-To get access to data that you will use for this challenge you can switch into the `src/backend` folder and run
+#### `useReadingListBooks.js`
 
-```bash
-npm install
-```
+A custom hook that filters and returns books that are in the reading list.
 
-Then run the following command to start the server
+#### `useSearchBooks.js`
 
-```bash
-npm start
-```
+A custom hook that filters and returns books based on the search term.
 
-This start a Graphql server at the url `http://localhost:4000/`, the server has a single query `books` that returns a list of books. 
+#### `usePagination.js`
 
-```graphql
-query Books {
-  books {
-    author
-    coverPhotoURL
-    readingLevel
-    title
+A custom hook to manage pagination state and handle loading more books.
+
+### GraphQL
+
+#### `queries.js`
+
+Contains GraphQL queries for fetching books.
+
+```js
+import { gql } from '@apollo/client';
+
+export const GET_BOOKS = gql`
+  query GetBooks {
+    books {
+      title
+      author
+      coverImage
+      isInReadingList
+    }
   }
-}
+`;
+
+export const BOOK_FRAGMENT = gql`
+  fragment BookFragment on Book {
+    title
+    isInReadingList
+  }
+`;
 ```
+# Usage
 
-You can use this query to get the list of books to display in your frontend. You may need to adjust the `coverPhotoURL` to be a valid URL. The photos are in the `src/frontend/assets` directory.
+## 1. Install Depenancies
 
-### Styling Guidelines
-- Use the "Mulish" Google font
-- You can use the following colors (You don't have to use all but you can pick and choose from here)
-<img width="961" alt="Screenshot 2024-05-14 at 17 36 40" src="https://github.com/ElloTechnology/fullstack-take-home-test/assets/3518127/15922f8f-a7c7-4033-8405-76988e95afb3">
+cd frontend
+npm install
 
+## 2. Run the Fontend
 
+npm start
 
+# Backend
 
-### You will be evaluated on
-- Code quality and organization.
-- User experience and design.
-- Beautiful and responsive UI.
+The backend is built using GraphQL and contains the necessary schemas and resolvers to support the frontend operations.
+
+## Usage
+
+## 1. Install dependencies:
+cd backend
+npm install
+
+## 2. Run the backend:
+npm start
+
 
 
