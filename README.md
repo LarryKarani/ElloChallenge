@@ -9,31 +9,33 @@ This project is a full-stack application built with React and Material-UI on the
 
 ## Project Structure
 
+```
 /project-root
 |-- /frontend
-| |-- /src
-| | |-- components
-| | | |-- App.js
-| | | |-- ResponsiveAppBar.js
-| | | |-- SearchBox.js
-| | | |-- MediaControlCard.js
-| | | |-- EmptyState.js
-| | | |-- LoadingComponent.js
-| | |-- hooks
-| | | |-- useReadingListBooks.js
-| | | |-- useSearchBooks.js
-| | | |-- usePagination.js
-| | |-- graphql
-| | | |-- queries.js
-| | | |-- fragments.js
-| | |-- index.js
-| | |-- App.css
-| |-- public
-| |-- package.json
+|   |-- /src
+|   |   |-- components
+|   |   |   |-- App.js
+|   |   |   |-- ResponsiveAppBar.js
+|   |   |   |-- SearchBox.js
+|   |   |   |-- MediaControlCard.js
+|   |   |   |-- EmptyState.js
+|   |   |   |-- LoadingComponent.js
+|   |   |-- hooks
+|   |   |   |-- useReadingListBooks.js
+|   |   |   |-- useSearchBooks.js
+|   |   |   |-- usePagination.js
+|   |   |-- graphql
+|   |   |   |-- queries.js
+|   |   |   |-- fragments.js
+|   |   |-- index.js
+|   |   |-- App.css
+|   |-- public
+|   |-- package.json
 |-- /backend
-| |-- src
-| |-- package.json
+|   |-- src
+|   |-- package.json
 |-- package.json
+```
 
 
 ## Frontend
@@ -108,13 +110,15 @@ export const BOOK_FRAGMENT = gql`
 # Usage
 
 ## 1. Install Depenancies
-
+```
 cd frontend
 npm install
+```
 
 ## 2. Run the Fontend
-
+```
 npm start
+```
 
 # Backend
 
@@ -123,11 +127,15 @@ The backend is built using GraphQL and contains the necessary schemas and resolv
 ## Usage
 
 ## 1. Install dependencies:
+```
 cd backend
 npm install
+```
 
 ## 2. Run the backend:
+```
 npm start
+```
 
 
 
