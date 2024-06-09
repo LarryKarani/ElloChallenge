@@ -15,7 +15,7 @@ import PropTypes from 'prop-types'
 const pages = ['All Books', 'My Reading List'];
 
 function ResponsiveAppBar({activePage, setActivePage}) {
-	 const [anchorElNav, setAnchorElNav] = React.useState(null);
+	const [anchorElNav, setAnchorElNav] = React.useState(null);
 	const handleOpenNavMenu = (event) => {
 		setAnchorElNav(event.currentTarget);
 	};

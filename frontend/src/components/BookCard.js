@@ -12,7 +12,7 @@ export default function BookCard({ book, toggleReadingList }) {
 		<Card sx={{ display: 'flex', padding: '25px', flexDirection: { xs: 'column', lg: 'row' }, boxShadow: '0 8px 20px 1px rgba(0,0,0,.05)' }}>
 			<CardMedia
 				component='img'
-				sx={{ width: { lg: 270, xs: '100%'}, height: 200, borderRadius: '8px' }}
+				sx={{ width: { lg: 270, xs: '100%' }, height: 200, borderRadius: '8px' }}
 				image={book.coverPhotoURL}
 				alt='Live from space album cover'
 			/>
